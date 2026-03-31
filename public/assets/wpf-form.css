@@ -7,7 +7,7 @@
 
 /* ── Design Tokens ───────────────────────────────────────────────────────── */
 #wpf-payment-form-wrap {
-    --wpf-p:         #8169f1;
+    --wpf-p:         #100739;
     --wpf-p-50:      #f5f3ff;
     --wpf-p-100:     #ede9fe;
     --wpf-p-200:     #ddd6fe;
@@ -54,6 +54,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+#wpf-payment-form-wrap svg {
+    color: #8169f1 !important;
 }
 
 /* ── WordPress Dark-Theme Override ───────────────────────────────────────── */
@@ -198,8 +202,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     background: rgba(255,255,255,0.15);
     border-radius: var(--wpf-r-sm);
     color: rgba(255,255,255,0.90);
