@@ -1,0 +1,1007 @@
+/* ============================================================
+   WPF Payment Form — SaaS Style UI
+   All rules scoped inside #wpf-payment-form-wrap
+   Primary: #8169f1 | Accent: #ff512a
+   Fonts: Bricolage Grotesque (headings) · Inter (body)
+   ============================================================ */
+
+/* ── Design Tokens ───────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap {
+    --wpf-p:         #8169f1;
+    --wpf-p-50:      #f5f3ff;
+    --wpf-p-100:     #ede9fe;
+    --wpf-p-200:     #ddd6fe;
+    --wpf-p-300:     #c4b5fd;
+    --wpf-p-600:     #7c3aed;
+    --wpf-p-dark:    #5b21b6;
+    --wpf-accent:    #ff512a;
+    --wpf-accent-bg: #fff4f1;
+
+    --wpf-bg:        #f4f4f6;
+    --wpf-surface:   #ffffff;
+    --wpf-border:    #e4e4e7;
+    --wpf-border-focus: #8169f1;
+    --wpf-ring:      rgba(129,105,241,0.18);
+
+    --wpf-text:      #18181b;
+    --wpf-text-2:    #52525b;
+    --wpf-text-3:    #a1a1aa;
+    --wpf-text-inv:  #ffffff;
+
+    --wpf-success:   #16a34a;
+    --wpf-success-bg:#f0fdf4;
+    --wpf-error:     #dc2626;
+    --wpf-error-bg:  #fef2f2;
+
+    --wpf-r-sm:      6px;
+    --wpf-r-md:      10px;
+    --wpf-r-lg:      14px;
+    --wpf-r-xl:      20px;
+
+    --wpf-shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --wpf-shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05);
+    --wpf-shadow-lg: 0 10px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
+
+    --wpf-t:         0.18s ease;
+    --wpf-font-h:    'Bricolage Grotesque', Georgia, serif;
+    --wpf-font-b:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Scoped Reset ────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap *,
+#wpf-payment-form-wrap *::before,
+#wpf-payment-form-wrap *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── WordPress Dark-Theme Override ───────────────────────────────────────── */
+/* Prevents any parent theme (dark mode, block themes, etc.)                  */
+/* from bleeding background/text/border colours into the form.                */
+#wpf-payment-form-wrap h1,
+#wpf-payment-form-wrap h2,
+#wpf-payment-form-wrap h3,
+#wpf-payment-form-wrap h4,
+#wpf-payment-form-wrap p,
+#wpf-payment-form-wrap span,
+#wpf-payment-form-wrap li,
+#wpf-payment-form-wrap strong,
+#wpf-payment-form-wrap abbr {
+    color: inherit;
+}
+
+#wpf-payment-form-wrap input,
+#wpf-payment-form-wrap button,
+#wpf-payment-form-wrap select,
+#wpf-payment-form-wrap textarea {
+    background-color: #ffffff;
+    color: #18181b;
+    border-color: #e4e4e7;
+    font-family: var(--wpf-font-b);
+}
+
+/* ── Outer Wrapper ───────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap.wpf-wrap {
+    font-family: var(--wpf-font-b) !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    color: var(--wpf-text) !important;
+    background: var(--wpf-bg) !important;
+    min-height: 100vh;
+    display: flex !important;
+    align-items: stretch;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Force all children to inherit light-mode colors — prevents WP dark theme bleed */
+#wpf-payment-form-wrap.wpf-wrap *,
+#wpf-payment-form-wrap.wpf-wrap *::before,
+#wpf-payment-form-wrap.wpf-wrap *::after {
+    color-scheme: light;
+}
+
+/* ── Two-column Layout ───────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    max-width: 900px;
+    width: 100%;
+    align-items: start;
+    gap: 0;
+    border-radius: var(--wpf-r-xl);
+    overflow: hidden;
+    box-shadow: var(--wpf-shadow-lg);
+    align-self: flex-start;
+}
+
+/* ── LEFT PANEL ──────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-panel-left {
+    background: var(--wpf-p) !important;
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+    min-height: 100%;
+}
+
+#wpf-payment-form-wrap .wpf-panel-left__inner {
+    padding: 44px 36px 60px;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Brand */
+#wpf-payment-form-wrap .wpf-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#wpf-payment-form-wrap .wpf-brand__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: rgba(255,255,255,0.18);
+    border-radius: var(--wpf-r-md);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+#wpf-payment-form-wrap .wpf-brand__name {
+    font-family: var(--wpf-font-h);
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.90);
+    letter-spacing: -0.2px;
+}
+
+/* Left copy */
+#wpf-payment-form-wrap .wpf-panel-left__heading {
+    font-family: var(--wpf-font-h);
+    font-size: clamp(22px, 3.5vw, 28px);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+}
+
+#wpf-payment-form-wrap .wpf-panel-left__sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+}
+
+/* Trust list */
+#wpf-payment-form-wrap .wpf-trust-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#wpf-payment-form-wrap .wpf-trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+#wpf-payment-form-wrap .wpf-trust-item__icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: rgba(255,255,255,0.15);
+    border-radius: var(--wpf-r-sm);
+    color: rgba(255,255,255,0.90);
+    margin-top: 1px;
+}
+
+#wpf-payment-form-wrap .wpf-trust-item > span {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    color: rgba(255,255,255,0.75) !important;
+}
+
+#wpf-payment-form-wrap .wpf-trust-item strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff !important;
+}
+
+#wpf-payment-form-wrap .wpf-trust-item > span > :not(strong) {
+    font-size: 12px;
+    color: rgba(255,255,255,0.72) !important;
+}
+
+/* Decorative rings */
+#wpf-payment-form-wrap .wpf-panel-deco {
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    pointer-events: none;
+}
+
+#wpf-payment-form-wrap .wpf-deco-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.12);
+}
+
+#wpf-payment-form-wrap .wpf-deco-ring--1 {
+    width: 180px; height: 180px;
+    bottom: 0; right: 0;
+}
+
+#wpf-payment-form-wrap .wpf-deco-ring--2 {
+    width: 300px; height: 300px;
+    bottom: -60px; right: -60px;
+}
+
+/* ── RIGHT PANEL ─────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-panel-right {
+    background: var(--wpf-surface) !important;
+}
+
+#wpf-payment-form-wrap .wpf-card {
+    padding: 40px 44px 32px;
+    background: var(--wpf-surface) !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 100%;
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--wpf-border);
+}
+
+#wpf-payment-form-wrap .wpf-breadcrumb__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: default;
+    font-family: var(--wpf-font-b);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--wpf-text-3);
+    transition: color var(--wpf-t);
+}
+
+#wpf-payment-form-wrap .wpf-breadcrumb__item--active {
+    color: var(--wpf-text);
+    font-weight: 600;
+}
+
+#wpf-payment-form-wrap .wpf-breadcrumb__item--done {
+    color: var(--wpf-success);
+}
+
+#wpf-payment-form-wrap .wpf-bc-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    background: var(--wpf-border);
+    color: var(--wpf-text-3);
+    transition: all var(--wpf-t);
+}
+
+#wpf-payment-form-wrap .wpf-breadcrumb__item--active .wpf-bc-num {
+    background: var(--wpf-p);
+    color: #fff;
+}
+
+#wpf-payment-form-wrap .wpf-breadcrumb__item--done .wpf-bc-num {
+    background: var(--wpf-success);
+    color: #fff;
+}
+
+#wpf-payment-form-wrap .wpf-bc-sep {
+    color: var(--wpf-text-3);
+    flex-shrink: 0;
+}
+
+/* ── Step ────────────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-step {
+    animation: wpf-slide-up 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+#wpf-payment-form-wrap .wpf-step--hidden { display: none !important; }
+
+@keyframes wpf-slide-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+#wpf-payment-form-wrap .wpf-step-head {
+    margin-bottom: 24px;
+}
+
+#wpf-payment-form-wrap .wpf-step-title {
+    font-family: var(--wpf-font-h);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--wpf-text) !important;
+    letter-spacing: -0.3px;
+    margin-bottom: 5px;
+}
+
+#wpf-payment-form-wrap .wpf-step-sub {
+    font-size: 13.5px;
+    color: var(--wpf-text-2) !important;
+    line-height: 1.55;
+}
+
+/* ── Form Fields ─────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+#wpf-payment-form-wrap .wpf-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+#wpf-payment-form-wrap .wpf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#wpf-payment-form-wrap .wpf-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--wpf-text) !important;
+    letter-spacing: 0.1px;
+}
+
+#wpf-payment-form-wrap .wpf-req {
+    color: var(--wpf-accent);
+    text-decoration: none;
+    font-style: normal;
+    margin-left: 1px;
+}
+
+#wpf-payment-form-wrap .wpf-opt {
+    font-weight: 400;
+    font-size: 11.5px;
+    color: var(--wpf-text-3);
+    margin-left: 4px;
+    letter-spacing: 0.2px;
+}
+
+/* Input wrap */
+#wpf-payment-form-wrap .wpf-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#wpf-payment-form-wrap .wpf-icon {
+    position: absolute;
+    left: 12px;
+    color: var(--wpf-text-3);
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+#wpf-payment-form-wrap .wpf-input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: 1.5px solid var(--wpf-border) !important;
+    border-radius: var(--wpf-r-md);
+    font-family: var(--wpf-font-b);
+    font-size: 14px !important;
+    color: var(--wpf-text) !important;
+    transition: border-color var(--wpf-t), box-shadow var(--wpf-t);
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+}
+
+#wpf-payment-form-wrap .wpf-input::placeholder { color: var(--wpf-text-3) !important; opacity: 1 !important; }
+
+#wpf-payment-form-wrap .wpf-input:hover {
+    border-color: #d4d4d8;
+}
+
+#wpf-payment-form-wrap .wpf-input:focus {
+    border-color: var(--wpf-p);
+    box-shadow: 0 0 0 3px var(--wpf-ring);
+}
+
+#wpf-payment-form-wrap .wpf-input.wpf-field--error {
+    border-color: var(--wpf-error);
+    box-shadow: 0 0 0 3px rgba(220,38,38,0.10);
+}
+
+#wpf-payment-form-wrap .wpf-input.wpf-field--valid {
+    border-color: var(--wpf-success);
+}
+
+#wpf-payment-form-wrap .wpf-err {
+    font-size: 12px;
+    color: var(--wpf-error);
+    min-height: 16px;
+}
+
+#wpf-payment-form-wrap .wpf-hint {
+    font-size: 11.5px;
+    color: var(--wpf-text-3);
+    margin-top: 4px;
+}
+
+/* ── Preset Amount Buttons ───────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-amount-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 2px;
+}
+
+#wpf-payment-form-wrap .wpf-preset-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: 1.5px solid var(--wpf-border) !important;
+    border-radius: var(--wpf-r-md);
+    font-family: var(--wpf-font-b);
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--wpf-text-2) !important;
+    cursor: pointer;
+    transition: all var(--wpf-t);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+#wpf-payment-form-wrap .wpf-preset-btn:hover {
+    border-color: var(--wpf-p-300);
+    color: var(--wpf-p);
+    background: var(--wpf-p-50);
+}
+
+#wpf-payment-form-wrap .wpf-preset-btn--active {
+    background: #ff512a !important;
+    border-color: #ff512a !important;
+    color: #fff !important;
+    box-shadow: 0 2px 10px rgba(255,81,42,0.32);
+}
+
+#wpf-payment-form-wrap .wpf-preset-btn--active:hover {
+    background: #e8451e !important;
+    border-color: #e8451e !important;
+    color: #fff !important;
+}
+
+#wpf-payment-form-wrap .wpf-preset-btn--custom {
+    border-style: dashed;
+    grid-column: span 4;
+    font-size: 13px;
+    color: var(--wpf-text-3);
+    padding: 8px;
+}
+
+#wpf-payment-form-wrap .wpf-preset-btn--custom.wpf-preset-btn--active {
+    border-style: solid;
+    background: rgba(255,81,42,0.08) !important;
+    border-color: #ff512a !important;
+    color: #ff512a !important;
+    box-shadow: none;
+}
+
+/* Custom amount input */
+#wpf-payment-form-wrap .wpf-custom-amount-wrap {
+    margin-top: 8px;
+    animation: wpf-slide-up 0.22s ease both;
+}
+
+#wpf-payment-form-wrap .wpf-amount-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#wpf-payment-form-wrap .wpf-currency-sign {
+    position: absolute;
+    left: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--wpf-text-2);
+    pointer-events: none;
+    z-index: 1;
+}
+
+#wpf-payment-form-wrap .wpf-amount-input {
+    padding-left: 28px !important;
+    padding-right: 52px !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px;
+    color: var(--wpf-text) !important;
+}
+
+#wpf-payment-form-wrap .wpf-amount-input::-webkit-inner-spin-button,
+#wpf-payment-form-wrap .wpf-amount-input::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+#wpf-payment-form-wrap .wpf-currency-tag {
+    position: absolute;
+    right: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: var(--wpf-text-3);
+    text-transform: uppercase;
+}
+
+/* ── Primary CTA Button ──────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-btn-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    padding: 13px 24px;
+    background: var(--wpf-accent);
+    border: none;
+    border-radius: var(--wpf-r-md);
+    font-family: var(--wpf-font-b);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 0.1px;
+    transition: background var(--wpf-t), transform var(--wpf-t), box-shadow var(--wpf-t);
+    box-shadow: 0 4px 14px rgba(255,81,42,0.30);
+    position: relative;
+    overflow: hidden;
+}
+
+#wpf-payment-form-wrap .wpf-btn-cta::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background 0.15s;
+}
+
+#wpf-payment-form-wrap .wpf-btn-cta:hover {
+    background: #e8451e;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255,81,42,0.38);
+}
+
+#wpf-payment-form-wrap .wpf-btn-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255,81,42,0.25);
+}
+
+/* ── Back button ─────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--wpf-font-b);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--wpf-text-3);
+    cursor: pointer;
+    margin-top: 14px;
+    transition: color var(--wpf-t);
+}
+
+#wpf-payment-form-wrap .wpf-btn-back:hover { color: var(--wpf-text); }
+
+/* ── Step 2: Order Summary Strip ─────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-summary-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--wpf-p-50);
+    border: 1.5px solid var(--wpf-p-200);
+    border-radius: var(--wpf-r-lg);
+    padding: 14px 18px;
+    margin-bottom: 22px;
+}
+
+#wpf-payment-form-wrap .wpf-summary-strip__label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--wpf-p-600);
+    margin-bottom: 2px;
+}
+
+#wpf-payment-form-wrap .wpf-summary-strip__val {
+    font-size: 14px;
+    color: var(--wpf-text);
+}
+
+#wpf-payment-form-wrap .wpf-summary-strip__amount-block { text-align: right; }
+
+#wpf-payment-form-wrap .wpf-summary-strip__amount {
+    font-family: var(--wpf-font-h);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--wpf-p);
+    letter-spacing: -0.5px;
+    display: block;
+}
+
+/* ── Methods Row ─────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-methods-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+#wpf-payment-form-wrap .wpf-method-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    background: #f4f4f6;
+    border: 1px solid var(--wpf-border);
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--wpf-text-2);
+}
+
+/* ── PayPal Box ──────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-paypal-box {
+    border: 1.5px solid var(--wpf-border);
+    border-radius: var(--wpf-r-lg);
+    padding: 20px;
+    margin-bottom: 6px;
+    background: #fafafa;
+    min-height: 80px;
+}
+
+#wpf-payment-form-wrap .wpf-paypal-skeleton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 12px 0;
+    font-size: 13px;
+    color: var(--wpf-text-3);
+}
+
+/* Spinner */
+#wpf-payment-form-wrap .wpf-spin-ring {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--wpf-border);
+    border-top-color: var(--wpf-p);
+    border-radius: 50%;
+    animation: wpf-spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes wpf-spin { to { transform: rotate(360deg); } }
+
+#wpf-payment-form-wrap .wpf-paypal-error {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--wpf-error-bg);
+    border-radius: var(--wpf-r-sm);
+    font-size: 13px;
+    color: var(--wpf-error);
+}
+
+/* ── Payment Notice ──────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-payment-notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: var(--wpf-r-sm);
+    font-size: 13.5px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+#wpf-payment-form-wrap .wpf-payment-notice--error {
+    background: var(--wpf-error-bg);
+    border: 1px solid rgba(220,38,38,0.20);
+    color: var(--wpf-error);
+}
+
+#wpf-payment-form-wrap .wpf-payment-notice--success {
+    background: var(--wpf-success-bg);
+    border: 1px solid rgba(22,163,74,0.20);
+    color: var(--wpf-success);
+}
+
+/* ── Success Screen ──────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-success-wrap {
+    text-align: center;
+    padding: 8px 0 16px;
+}
+
+#wpf-payment-form-wrap .wpf-success-check-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#wpf-payment-form-wrap .wpf-success-ring-anim {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(22,163,74,0.20);
+    animation: wpf-ring-expand 0.6s 0.3s ease both;
+    opacity: 0;
+}
+
+@keyframes wpf-ring-expand {
+    from { transform: scale(0.7); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+#wpf-payment-form-wrap .wpf-success-check {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--wpf-success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(22,163,74,0.30);
+    animation: wpf-check-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes wpf-check-pop {
+    from { transform: scale(0.4); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+}
+
+#wpf-payment-form-wrap .wpf-success-heading {
+    font-family: var(--wpf-font-h);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--wpf-text);
+    letter-spacing: -0.4px;
+    margin-bottom: 6px;
+    animation: wpf-slide-up 0.3s 0.1s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#wpf-payment-form-wrap .wpf-success-meta {
+    font-size: 13.5px;
+    color: var(--wpf-text-2);
+    margin-bottom: 20px;
+    animation: wpf-slide-up 0.3s 0.15s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#wpf-payment-form-wrap .wpf-success-amount-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--wpf-success-bg);
+    border: 1.5px solid rgba(22,163,74,0.20);
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-bottom: 24px;
+    animation: wpf-slide-up 0.3s 0.2s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#wpf-payment-form-wrap .wpf-success-amount-block > span:first-child {
+    font-family: var(--wpf-font-h);
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--wpf-success);
+    letter-spacing: -0.5px;
+}
+
+#wpf-payment-form-wrap .wpf-paid-tag {
+    display: inline-block;
+    background: var(--wpf-success);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+/* Receipt table */
+#wpf-payment-form-wrap .wpf-receipt-table {
+    text-align: left;
+    border: 1px solid var(--wpf-border);
+    border-radius: var(--wpf-r-lg);
+    overflow: hidden;
+    margin-bottom: 18px;
+    animation: wpf-slide-up 0.3s 0.25s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+#wpf-payment-form-wrap .wpf-receipt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--wpf-border);
+    font-size: 13px;
+}
+
+#wpf-payment-form-wrap .wpf-receipt-row:last-child { border-bottom: none; }
+#wpf-payment-form-wrap .wpf-receipt-row:nth-child(even) { background: #fafafa; }
+
+#wpf-payment-form-wrap .wpf-receipt-row > span:first-child {
+    font-weight: 600;
+    color: var(--wpf-text-2);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+#wpf-payment-form-wrap .wpf-receipt-row > span:last-child {
+    color: var(--wpf-text);
+    font-weight: 500;
+    text-align: right;
+    word-break: break-all;
+}
+
+#wpf-payment-form-wrap .wpf-mono {
+    font-family: 'Courier New', monospace;
+    font-size: 11.5px;
+    color: var(--wpf-text-2);
+}
+
+#wpf-payment-form-wrap .wpf-success-email-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--wpf-text-3);
+    animation: wpf-slide-up 0.3s 0.3s ease both;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* ── Card Footer ─────────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--wpf-border);
+    font-size: 11.5px;
+    color: var(--wpf-text-3);
+    letter-spacing: 0.2px;
+}
+
+/* ── Spinner (general) ───────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: wpf-spin 0.7s linear infinite;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+    #wpf-payment-form-wrap.wpf-wrap { padding: 0; background: #ffffff !important; }
+
+    #wpf-payment-form-wrap .wpf-layout {
+        grid-template-columns: 1fr;
+        border-radius: 0;
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    #wpf-payment-form-wrap .wpf-panel-left {
+        padding: 0 !important;
+    }
+
+    #wpf-payment-form-wrap .wpf-panel-left__inner {
+        padding: 24px 24px 28px;
+        gap: 20px;
+    }
+
+    #wpf-payment-form-wrap .wpf-panel-left__heading { font-size: 20px; }
+    #wpf-payment-form-wrap .wpf-trust-list { display: none; }
+    #wpf-payment-form-wrap .wpf-panel-deco { display: none; }
+
+    #wpf-payment-form-wrap .wpf-card {
+        padding: 28px 20px 24px;
+        background: #ffffff !important;
+    }
+
+    #wpf-payment-form-wrap .wpf-row-2 { grid-template-columns: 1fr; }
+
+    #wpf-payment-form-wrap .wpf-amount-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #wpf-payment-form-wrap .wpf-preset-btn--custom { grid-column: span 2; }
+
+    #wpf-payment-form-wrap .wpf-summary-strip { flex-direction: column; align-items: flex-start; gap: 8px; }
+    #wpf-payment-form-wrap .wpf-summary-strip__amount-block { text-align: left; }
+}
+
+@media (max-width: 400px) {
+    #wpf-payment-form-wrap .wpf-amount-grid { grid-template-columns: 1fr 1fr; }
+    #wpf-payment-form-wrap .wpf-card { padding: 22px 16px 20px; }
+}
+
+/* ── Accessibility ───────────────────────────────────────────────────────── */
+#wpf-payment-form-wrap .wpf-btn-cta:focus-visible,
+#wpf-payment-form-wrap .wpf-btn-back:focus-visible,
+#wpf-payment-form-wrap .wpf-preset-btn:focus-visible,
+#wpf-payment-form-wrap .wpf-input:focus-visible {
+    outline: 2px solid var(--wpf-p);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #wpf-payment-form-wrap *, #wpf-payment-form-wrap *::before, #wpf-payment-form-wrap *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

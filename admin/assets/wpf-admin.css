@@ -1,0 +1,574 @@
+/* ── WPF Admin Styles ────────────────────────────────────────────────────── */
+/* All selectors prefixed with .wpf- to prevent theme/plugin conflicts       */
+
+:root {
+    --wpf-primary:   #8169f1;
+    --wpf-accent:    #ff512a;
+    --wpf-gradient:  linear-gradient(135deg, #8169f1, #ff512a);
+    --wpf-bg:        #f0f2f7;
+    --wpf-card:      #ffffff;
+    --wpf-border:    #e2e8f0;
+    --wpf-text:      #1a1a2e;
+    --wpf-muted:     #64748b;
+    --wpf-radius:    12px;
+    --wpf-shadow:    0 2px 16px rgba(0,0,0,0.08);
+}
+
+.wpf-admin-wrap {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 1100px;
+    padding: 24px 0;
+    color: var(--wpf-text);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.wpf-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--wpf-gradient);
+    border-radius: var(--wpf-radius);
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    color: #fff;
+}
+
+.wpf-admin-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.wpf-admin-header__icon {
+    font-size: 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    opacity: 0.9;
+}
+
+.wpf-admin-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #fff;
+}
+
+.wpf-admin-header p {
+    margin: 0;
+    opacity: 0.85;
+    font-size: 14px;
+}
+
+.wpf-admin-header__actions,
+.wpf-admin-header__badge { display:flex; align-items:center; gap:12px; }
+
+.wpf-mode-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.35);
+}
+.wpf-mode-badge.live { background: rgba(34,197,94,0.3); }
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+.wpf-admin-card {
+    background: var(--wpf-card);
+    border: 1px solid var(--wpf-border);
+    border-radius: var(--wpf-radius);
+    margin-bottom: 20px;
+    box-shadow: var(--wpf-shadow);
+    overflow: hidden;
+}
+
+.wpf-admin-card__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--wpf-border);
+    background: #fafbff;
+}
+
+.wpf-admin-card__header .dashicons {
+    color: var(--wpf-primary);
+    font-size: 20px !important;
+    width: 20px !important; height: 20px !important;
+}
+
+.wpf-admin-card__header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--wpf-text);
+}
+
+.wpf-admin-card__body {
+    padding: 24px;
+}
+
+.wpf-admin-card__body.wpf-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* ── Form Fields ─────────────────────────────────────────────────────────── */
+.wpf-field-row { margin-bottom: 20px; }
+.wpf-field-row:last-child { margin-bottom: 0; }
+
+.wpf-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--wpf-text);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+.wpf-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--wpf-border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--wpf-text);
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.wpf-input:focus {
+    outline: none;
+    border-color: var(--wpf-primary);
+    box-shadow: 0 0 0 3px rgba(129,105,241,0.12);
+}
+
+textarea.wpf-input { resize: vertical; }
+
+.wpf-help {
+    font-size: 12px;
+    color: var(--wpf-muted);
+    margin: 6px 0 0;
+}
+
+/* ── Toggle Group ────────────────────────────────────────────────────────── */
+.wpf-toggle-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.wpf-toggle-option input[type="radio"] { display: none; }
+
+.wpf-toggle-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1.5px solid var(--wpf-border);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: #f8f9fc;
+}
+
+.wpf-toggle-option input[type="radio"]:checked + .wpf-toggle-sandbox {
+    background: linear-gradient(135deg,#8169f1,#a78bfa);
+    border-color: var(--wpf-primary);
+    color: #fff;
+}
+
+.wpf-toggle-option input[type="radio"]:checked + .wpf-toggle-live {
+    background: linear-gradient(135deg,#22c55e,#16a34a);
+    border-color: #16a34a;
+    color: #fff;
+}
+
+/* ── Password Wrap ───────────────────────────────────────────────────────── */
+.wpf-password-wrap { position: relative; }
+
+.wpf-toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--wpf-muted);
+    padding: 0;
+    line-height: 1;
+}
+
+.wpf-toggle-password:hover { color: var(--wpf-primary); }
+
+/* ── Credential Hint ─────────────────────────────────────────────────────── */
+.wpf-credential-hint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #1d4ed8;
+    margin-bottom: 20px;
+}
+
+.wpf-credential-hint .dashicons { font-size:16px !important; width:16px !important; height:16px !important; }
+.wpf-credential-hint a { color:#1d4ed8; font-weight:600; }
+
+/* ── Shortcode Card ──────────────────────────────────────────────────────── */
+.wpf-shortcode-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #1e1e2e;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 12px 0;
+}
+
+.wpf-shortcode-box code {
+    color: #a78bfa;
+    font-size: 15px;
+    font-family: 'Courier New', monospace;
+    flex: 1;
+    background: none;
+}
+
+.wpf-copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.wpf-copy-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.wpf-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--wpf-gradient);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+    text-decoration: none;
+    font-family: inherit;
+}
+.wpf-btn-primary:hover { opacity: 0.9; transform: translateY(-1px); color:#fff; }
+
+.wpf-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+.wpf-btn-secondary:hover { background: rgba(255,255,255,0.3); color:#fff; }
+
+.wpf-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    color: var(--wpf-muted);
+    border: 1.5px solid var(--wpf-border);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+.wpf-btn-ghost:hover { border-color: var(--wpf-primary); color: var(--wpf-primary); }
+
+.wpf-admin-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 0 16px;
+}
+
+.wpf-saving-indicator { color: var(--wpf-muted); font-size: 14px; }
+
+/* ── Notice ──────────────────────────────────────────────────────────────── */
+.wpf-admin-notice {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.wpf-admin-notice.wpf-success { background:#f0fdf4; border:1px solid #86efac; color:#166534; }
+.wpf-admin-notice.wpf-error   { background:#fef2f2; border:1px solid #fca5a5; color:#991b1b; }
+
+/* ── Stats ───────────────────────────────────────────────────────────────── */
+.wpf-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.wpf-stat-card {
+    background: var(--wpf-card);
+    border: 1px solid var(--wpf-border);
+    border-radius: var(--wpf-radius);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--wpf-shadow);
+}
+
+.wpf-stat-card--revenue { border-color: var(--wpf-primary); }
+
+.wpf-stat-icon {
+    font-size: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    color: var(--wpf-primary);
+}
+
+.wpf-stat-body { display:flex; flex-direction:column; }
+
+.wpf-stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--wpf-text);
+    line-height: 1.2;
+}
+
+.wpf-stat-label {
+    font-size: 12px;
+    color: var(--wpf-muted);
+    margin-top: 2px;
+}
+
+/* ── Filter Bar ──────────────────────────────────────────────────────────── */
+.wpf-filter-bar {
+    background: var(--wpf-card);
+    border: 1px solid var(--wpf-border);
+    border-radius: var(--wpf-radius);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--wpf-shadow);
+}
+
+.wpf-filter-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.wpf-search-input { flex: 1; min-width: 200px; }
+.wpf-filter-select { width: auto; min-width: 140px; }
+
+/* ── Table ───────────────────────────────────────────────────────────────── */
+.wpf-table-wrap {
+    background: var(--wpf-card);
+    border: 1px solid var(--wpf-border);
+    border-radius: var(--wpf-radius);
+    overflow: hidden;
+    box-shadow: var(--wpf-shadow);
+}
+
+.wpf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.wpf-table th {
+    background: #fafbff;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--wpf-muted);
+    border-bottom: 1px solid var(--wpf-border);
+}
+
+.wpf-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+}
+
+.wpf-table tbody tr:hover { background: #fafbff; }
+.wpf-table tbody tr:last-child td { border-bottom: none; }
+
+.wpf-amount-cell { font-size: 15px; color: #166534; }
+
+.wpf-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+.wpf-badge-pending   { background:#fef3c7; color:#92400e; }
+.wpf-badge-completed { background:#d1fae5; color:#065f46; }
+.wpf-badge-failed    { background:#fee2e2; color:#991b1b; }
+.wpf-badge-refunded  { background:#e0e7ff; color:#3730a3; }
+
+.wpf-method-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    background: #f1f5f9;
+    color: var(--wpf-text);
+}
+.wpf-method-paypal { background:#e0f2fe; color:#075985; }
+.wpf-method-card   { background:#fce7f3; color:#9d174d; }
+
+.wpf-order-id {
+    font-size: 11px;
+    background: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--wpf-muted);
+    font-family: monospace;
+}
+
+.wpf-billing { color: var(--wpf-muted); }
+
+.wpf-action-link { color: var(--wpf-primary); text-decoration: none; }
+.wpf-action-link:hover { color: var(--wpf-accent); }
+
+/* ── Pagination ──────────────────────────────────────────────────────────── */
+.wpf-pagination {
+    display: flex;
+    gap: 6px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--wpf-border);
+}
+
+.wpf-page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1.5px solid var(--wpf-border);
+    color: var(--wpf-text);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.wpf-page-btn:hover         { border-color: var(--wpf-primary); color: var(--wpf-primary); }
+.wpf-page-btn--active       { background: var(--wpf-gradient); border-color: transparent; color: #fff !important; }
+
+/* ── Empty State ─────────────────────────────────────────────────────────── */
+.wpf-empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--wpf-muted);
+}
+.wpf-empty-state .dashicons { font-size: 48px !important; width:48px !important; height:48px !important; opacity:0.3; }
+.wpf-empty-state p { font-size: 15px; margin-top: 12px; }
+
+/* ── Email Notification Toggles ──────────────────────────────────────────── */
+.wpf-notify-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.wpf-check-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--wpf-text);
+    padding: 12px 16px;
+    border: 1.5px solid var(--wpf-border);
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.wpf-check-label:hover { border-color: var(--wpf-primary); background: #fafbff; }
+
+.wpf-check-label input[type="checkbox"] { display: none; }
+
+.wpf-check-ui {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--wpf-border);
+    border-radius: 5px;
+    background: #fff;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.wpf-check-label input[type="checkbox"]:checked + .wpf-check-ui {
+    background: var(--wpf-primary);
+    border-color: var(--wpf-primary);
+}
+
+.wpf-check-label input[type="checkbox"]:checked + .wpf-check-ui::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .wpf-stats-row { grid-template-columns: 1fr 1fr; }
+    .wpf-admin-card__body.wpf-two-col { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .wpf-stats-row { grid-template-columns: 1fr; }
+    .wpf-admin-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+    .wpf-filter-form { flex-direction: column; }
+    .wpf-search-input, .wpf-filter-select { width: 100%; }
+}
