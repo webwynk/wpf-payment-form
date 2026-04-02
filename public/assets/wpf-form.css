@@ -1054,11 +1054,7 @@
         grid-column: span 2;
     }
 
-    #wpf-payment-form-wrap .wpf-summary-strip {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 8px;
-    }
+
 
     #wpf-payment-form-wrap .wpf-summary-strip__amount-block {
         text-align: left;
