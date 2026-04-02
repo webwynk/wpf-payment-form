@@ -57,7 +57,7 @@
 }
 
 #wpf-payment-form-wrap svg {
-    color: #8169f1 !important;
+    color: #8169f1;
 }
 
 /* ── WordPress Dark-Theme Override ───────────────────────────────────────── */
@@ -206,7 +206,7 @@
     height: 40px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: var(--wpf-r-sm);
-    color: rgba(255, 255, 255, 0.90);
+    color: #8169f1;
     margin-top: 1px;
 }
 
@@ -320,7 +320,7 @@
 }
 
 #wpf-payment-form-wrap .wpf-breadcrumb__item--active .wpf-bc-num {
-    background: var(--wpf-p);
+    background: #ff512a;
     color: #fff;
 }
 
@@ -458,8 +458,8 @@
 }
 
 #wpf-payment-form-wrap .wpf-input:focus {
-    border-color: var(--wpf-p);
-    box-shadow: 0 0 0 3px var(--wpf-ring);
+    border-color: #8169f1;
+    box-shadow: 0 0 0 3px rgba(129, 105, 241, 0.15);
 }
 
 #wpf-payment-form-wrap .wpf-input.wpf-field--error {
@@ -546,6 +546,10 @@
     box-shadow: none;
 }
 
+#wpf-payment-form-wrap .wpf-preset-btn--custom svg {
+    color: #ff512a !important;
+}
+
 /* Custom amount input */
 #wpf-payment-form-wrap .wpf-custom-amount-wrap {
     margin-top: 8px;
@@ -613,6 +617,10 @@
     box-shadow: 0 4px 14px rgba(255, 81, 42, 0.30);
     position: relative;
     overflow: hidden;
+}
+
+#wpf-payment-form-wrap .wpf-btn-cta svg {
+    color: #ffffff !important;
 }
 
 #wpf-payment-form-wrap .wpf-btn-cta::after {
@@ -996,7 +1004,7 @@
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 760px) {
     #wpf-payment-form-wrap.wpf-wrap {
-        padding: 0;
+        padding: 25px;
         background: #ffffff !important;
     }
 
@@ -1009,6 +1017,7 @@
 
     #wpf-payment-form-wrap .wpf-panel-left {
         padding: 0 !important;
+        border-radius: 25px;
     }
 
     #wpf-payment-form-wrap .wpf-panel-left__inner {
