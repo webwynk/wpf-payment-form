@@ -204,9 +204,8 @@
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.15);
+    background: #8169f175;
     border-radius: var(--wpf-r-sm);
-    color: #8169f1;
     margin-top: 1px;
 }
 
@@ -221,7 +220,7 @@
     display: block;
     font-size: 13px;
     font-weight: 700;
-    color: #ffffff !important;
+    color: #8169f1;
 }
 
 #wpf-payment-form-wrap .wpf-trust-item>span> :not(strong) {
@@ -496,7 +495,7 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    padding: 10px 8px;
+    padding: 13px 8px;
     background: #ffffff !important;
     background-color: #ffffff !important;
     border: 1.5px solid var(--wpf-border) !important;
@@ -535,7 +534,7 @@
     grid-column: span 4;
     font-size: 13px;
     color: var(--wpf-text-3);
-    padding: 8px;
+    padding: 13px 8px;
 }
 
 #wpf-payment-form-wrap .wpf-preset-btn--custom.wpf-preset-btn--active {

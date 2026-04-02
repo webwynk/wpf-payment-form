@@ -1,4 +1,5 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
+<?php if (!defined('ABSPATH'))
+    exit; ?>
 
 <div id="wpf-payment-form-wrap" class="wpf-wrap" role="main">
 <div class="wpf-layout">
@@ -11,36 +12,36 @@
                 <span class="wpf-brand__icon">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </span>
-                <span class="wpf-brand__name"><?php echo esc_html( $atts['brand'] ); ?></span>
+                <span class="wpf-brand__name"><?php echo esc_html($atts['brand']); ?></span>
             </div>
 
             <div class="wpf-panel-left__copy">
-                <h2 class="wpf-panel-left__heading"><?php echo esc_html( $atts['heading'] ); ?></h2>
-                <p class="wpf-panel-left__sub"><?php echo esc_html( $atts['subheading'] ); ?></p>
+                <h2 class="wpf-panel-left__heading"><?php echo esc_html($atts['heading']); ?></h2>
+                <p class="wpf-panel-left__sub"><?php echo esc_html($atts['subheading']); ?></p>
             </div>
 
             <ul class="wpf-trust-list" role="list">
                 <li class="wpf-trust-item">
                     <span class="wpf-trust-item__icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </span>
                     <span><strong>SSL Encrypted</strong>256-bit bank-level security</span>
                 </li>
                 <li class="wpf-trust-item">
                     <span class="wpf-trust-item__icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                     </span>
                     <span><strong>Instant Access</strong>Activates immediately after payment</span>
                 </li>
                 <li class="wpf-trust-item">
                     <span class="wpf-trust-item__icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.067 8.478c.492.88.556 2.014.3 3.327-.74 3.806-3.276 5.12-6.514 5.12h-.5a.805.805 0 0 0-.794.68l-.04.22-.63 3.993-.032.17a.804.804 0 0 1-.794.679H8.969a.483.483 0 0 1-.477-.558L9.948 12h2.56c4.106 0 7.39-1.998 8.315-6.287.373-1.768.232-3.22-.442-4.286C22.024 2.836 23 4.867 23 7.5c0 .337-.02.668-.053.993.056-.015.12-.015 0 0zM5.107 21.5h2.394a.805.805 0 0 0 .794-.68l.032-.17.63-3.993.04-.22a.805.805 0 0 1 .794-.68h.5c3.238 0 5.774-1.314 6.514-5.12.256-1.313.192-2.447-.3-3.327C15.37 5.866 13.745 5 11.5 5H6.5a.805.805 0 0 0-.794.68L3.5 19.5a.483.483 0 0 0 .477.558l1.13-.558z"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.067 8.478c.492.88.556 2.014.3 3.327-.74 3.806-3.276 5.12-6.514 5.12h-.5a.805.805 0 0 0-.794.68l-.04.22-.63 3.993-.032.17a.804.804 0 0 1-.794.679H8.969a.483.483 0 0 1-.477-.558L9.948 12h2.56c4.106 0 7.39-1.998 8.315-6.287.373-1.768.232-3.22-.442-4.286C22.024 2.836 23 4.867 23 7.5c0 .337-.02.668-.053.993.056-.015.12-.015 0 0zM5.107 21.5h2.394a.805.805 0 0 0 .794-.68l.032-.17.63-3.993.04-.22a.805.805 0 0 1 .794-.68h.5c3.238 0 5.774-1.314 6.514-5.12.256-1.313.192-2.447-.3-3.327C15.37 5.866 13.745 5 11.5 5H6.5a.805.805 0 0 0-.794.68L3.5 19.5a.483.483 0 0 0 .477.558l1.13-.558z"/></svg>
                     </span>
                     <span><strong>Powered by PayPal</strong>Trusted by 430M+ users</span>
                 </li>
                 <li class="wpf-trust-item">
                     <span class="wpf-trust-item__icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </span>
                     <span><strong>Email Receipt</strong>Confirmation sent instantly</span>
                 </li>
@@ -146,13 +147,13 @@
                                 <span class="wpf-currency-sign">$</span>
                                 <input type="number" id="wpf-amount" class="wpf-input wpf-amount-input"
                                     placeholder="0.00"
-                                    min="<?php echo esc_attr( get_option('wpf_min_amount', 1) ); ?>"
-                                    max="<?php echo esc_attr( get_option('wpf_max_amount', 99999) ); ?>"
+                                    min="<?php echo esc_attr(get_option('wpf_min_amount', 1)); ?>"
+                                    max="<?php echo esc_attr(get_option('wpf_max_amount', 99999)); ?>"
                                     step="0.01">
                                 <span class="wpf-currency-tag">USD</span>
                             </div>
                             <p class="wpf-hint">
-                                Min $<?php echo esc_html( number_format( floatval(get_option('wpf_min_amount',1)), 0 ) ); ?> · Max $<?php echo esc_html( number_format( floatval(get_option('wpf_max_amount',99999)), 0 ) ); ?>
+                                Min $<?php echo esc_html(number_format(floatval(get_option('wpf_min_amount', 1)), 0)); ?> · Max $<?php echo esc_html(number_format(floatval(get_option('wpf_max_amount', 99999)), 0)); ?>
                             </p>
                         </div>
 
