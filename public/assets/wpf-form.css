@@ -297,7 +297,7 @@
 }
 
 #wpf-payment-form-wrap .wpf-breadcrumb__item--active {
-    color: var(--wpf-text);
+    color: #ff512a;
     font-weight: 600;
 }
 
@@ -1055,7 +1055,7 @@
     }
 
     #wpf-payment-form-wrap .wpf-summary-strip {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         gap: 8px;
     }
@@ -1080,7 +1080,7 @@
 #wpf-payment-form-wrap .wpf-btn-back:focus-visible,
 #wpf-payment-form-wrap .wpf-preset-btn:focus-visible,
 #wpf-payment-form-wrap .wpf-input:focus-visible {
-    outline: 2px solid #e2dbff !important;
+    outline: 1px solid #e2dbff !important;
     outline-offset: 2px;
 }
 
