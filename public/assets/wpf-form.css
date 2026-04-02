@@ -81,7 +81,7 @@
 #wpf-payment-form-wrap textarea {
     background-color: #ffffff;
     color: #18181b;
-    border-color: #e4e4e7;
+    border-color: #e4e4e7 !important;
     font-family: var(--wpf-font-b);
 }
 
@@ -1038,7 +1038,7 @@
     }
 
     #wpf-payment-form-wrap .wpf-card {
-        padding: 28px 20px 24px;
+        padding: 25px 10px;
         background: #ffffff !important;
     }
 
@@ -1080,7 +1080,7 @@
 #wpf-payment-form-wrap .wpf-btn-back:focus-visible,
 #wpf-payment-form-wrap .wpf-preset-btn:focus-visible,
 #wpf-payment-form-wrap .wpf-input:focus-visible {
-    outline: 2px solid var(--wpf-p);
+    outline: 2px solid #e2dbff !important;
     outline-offset: 2px;
 }
 
